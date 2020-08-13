@@ -5,13 +5,14 @@ import (
 	"github.com/galileoluna/twittor2/routers"
 )
 /* Valido Jwt */
+/*ValidoJWT permite validar el JWT que nos viene en la petición */
 func ValidoJWT(next http.HandlerFunc) http.HandlerFunc {
-	return  func (w http.ResponseWriter, r *http.Request){
-		_, _, _, err .= routes.ProcesoToken(r.Header.Get("Authorization"))
+	return func(w http.ResponseWriter, r *http.Request) {
+		_, _, _, err := routers.ProcesoToken(r.Header.Get("Authorization"))
 		if err != nil {
-			http.Error(w, "Error en el Token!"+err.Error(), http.StatusBadRequest)
+			http.Error(w, "Error en el Token ! "+err.Error(), http.StatusBadRequest)
 			return
 		}
-		next.ServeHTTP(w,r)
+		next.ServeHTTP(w, r)
 	}
 }
