@@ -3,7 +3,7 @@ package routers
 import (
 	"encoding/json"
 	"net/http"
-	"github.com/galileo/twittor/bd"
+	"github.com/galileoluna/twittor2/bd"
 )
 
 /*VerPerfil permite extraer los valores del Perfil */
